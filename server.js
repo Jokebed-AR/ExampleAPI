@@ -6,6 +6,9 @@ const axios = require('axios');
 //Using packages
 const app = express();
 
+//Set port for Heroku
+let port = process.env.PORT || 8080
+
 //Middleware to read json objets
 app.use(express.json())
 app.use(morgan('dev'))
@@ -203,7 +206,7 @@ app.get('/marvel/series/:serieid', (req, res) => {
 
 
 //Listen Server
-app.listen(3000, () => {
-    console.log("Server running on port 3000");
-});
+app.listen(port, () =>{
+    console.log("Server running on port");
+})
 
